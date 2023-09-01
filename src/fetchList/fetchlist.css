@@ -1,0 +1,27 @@
+.fetchListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-height: 55rem;
+  }
+  
+  .fetchListItem {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+  }
+  
+  .buttonPrev{
+    width: 7rem;
+    height: 4rem;
+    border-radius: 11%;
+    margin-top: 15rem;
+  }
+
+  .buttonNext{
+    width: 7rem;
+    height: 4rem;
+    border-radius: 11%;
+    margin-top: 15rem;
+    margin-left: 5rem;
+  }
