@@ -41,7 +41,7 @@ const Todo = ({ tasks, addTask, completeTask, deleteTask, editTask }) => {
   };
 
   return (
-    <div>
+    <div className="toDoListContainer">
       <h1>ToDo List</h1>
       <input
         type="text"
@@ -74,8 +74,15 @@ const Todo = ({ tasks, addTask, completeTask, deleteTask, editTask }) => {
                   value={taskName}
                   onChange={(e) => setTaskName(e.target.value)}
                 />
-                <button onClick={() => handleSaveEdit(task.id)}>Save</button>
-                <button onClick={() => cancelEdit()}>Cancel</button>
+                <button
+                  onClick={() => handleSaveEdit(task.id)}
+                  className="buttonEdit"
+                >
+                  Save
+                </button>
+                <button onClick={() => cancelEdit()} className="buttonDelete">
+                  Cancel
+                </button>
               </div>
             )}
           </li>

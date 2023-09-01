@@ -1,8 +1,10 @@
 import React from "react";
-import CardDisplay from "../cardDisplay/CardDisplay";
+import DashboardCard from "./DashboardCard";
 import MiniCards from "../miniCards/MiniCards";
-import PAGES from "../constants";
 import { useSelector } from "react-redux";
+import "./dashboard.css";
+import PAGES from "../constants.js";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const tasks = useSelector((state) => state.tasks);
@@ -10,6 +12,11 @@ const Dashboard = () => {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.completed).length;
   const pendingTasks = totalTasks - completedTasks;
+  const navigate = useNavigate();
+
+  const handleCardClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <div className="contenedorPadre">
@@ -19,9 +26,17 @@ const Dashboard = () => {
           pendingTasks={pendingTasks}
         />
       </div>
-      {PAGES.map((page) => (
-        <CardDisplay key={page.id} name={page.name} img={page.image} />
-      ))}
+      <div className="dashBoardsCards">
+        {PAGES.map((page) => (
+          <div key={page.id} onClick={() => handleCardClick(page.path)}>
+            <DashboardCard
+              name={page.name}
+              image={page.image}
+              style={{ marginRight: "20px" }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

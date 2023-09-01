@@ -3,10 +3,13 @@ import {
   COMPLETE_TASK,
   DELETE_TASK,
   EDIT_TASK,
+  FETCH_POKEMONS_SUCCESS,
 } from "../actions/actions";
 
 const initialState = {
   tasks: [],
+  pokemons: [],
+  nextUrl: null,
 };
 
 const tasksReducer = (state = initialState, action) => {
@@ -41,6 +44,11 @@ const tasksReducer = (state = initialState, action) => {
             ? { ...task, name: action.payload.newName }
             : task
         ),
+      };
+    case FETCH_POKEMONS_SUCCESS:
+      return {
+        ...state,
+        pokemons: action.payload,
       };
     default:
       return state;

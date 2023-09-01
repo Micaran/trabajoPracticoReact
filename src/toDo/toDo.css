@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100wh;
   }
   
   .container {
@@ -36,6 +37,7 @@ body {
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 20px;
   }
   
   button:hover {
@@ -61,14 +63,6 @@ body {
     flex-grow: 1;
   }
   
-  button.edit-button {
-    background-color: #ffc107;
-    margin-right: 5px;
-  }
-  
-  button.delete-button {
-    background-color: #dc3545;
-  }
   
   input[type="text"]:focus,
   button:focus {
@@ -77,3 +71,12 @@ body {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
   
+
+  .toDoListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-height: 100%;
+    width: 80rem;
+    max-height: 100%;
+  }

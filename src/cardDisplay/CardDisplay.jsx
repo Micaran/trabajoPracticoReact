@@ -1,14 +1,27 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+} from "@mui/material";
+import PokemonModal from "../pokemonModal/PokemonModal";
 
-const CardDisplay = ({ id, name, image, description }) => {
+const CardDisplay = ({ id, name, image, indexPokedex, additionalInfo }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea additionalInfo onClick={handleOpenModal}>
         <CardMedia
           component="img"
           height="140"
@@ -16,14 +29,22 @@ const CardDisplay = ({ id, name, image, description }) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          {indexPokedex && (
+            <Typography gutterBottom variant="h4" component="div">
+              N° {indexPokedex < 100 ? `0${indexPokedex}` : indexPokedex}
+            </Typography>
+          )}
+          <Typography gutterBottom variant="h3" component="div">
             {name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
+
+      <PokemonModal
+        open={open}
+        handleClose={handleCloseModal}
+        additionalInfo={additionalInfo}
+      />
     </Card>
   );
 };

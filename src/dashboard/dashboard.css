@@ -1,0 +1,19 @@
+.contenedorPadre{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 70rem;
+    padding: 30px;
+}
+
+.miniCards{
+    padding: 12px;
+}
+
+.dashBoardsCards{
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 20px;
+}
